@@ -8,14 +8,21 @@ class View(ttk.Frame):
 
         # create widgets
         # label
-        self.label = ttk.Label(self, text='Email:')
-        self.label.grid(row=1, column=0)
-
+        self.email_lbl = ttk.Label(self, text='Email:')
+        self.email_lbl.grid(row=1, column=0)
         # email entry
         self.email_var = tk.StringVar()
         self.email_entry = ttk.Entry(
             self, textvariable=self.email_var, width=30)
         self.email_entry.grid(row=1, column=1, sticky=tk.NSEW)
+
+        self.first_name_lbl = ttk.Label(self, text='First Name:')
+        self.first_name_lbl.grid(row=3, column=0)
+        # first name entry
+        self.first_name_var = tk.StringVar()
+        self.first_name_entry = ttk.Entry(
+            self, textvariable=self.first_name_var, width=30)
+        self.first_name_entry.grid(row=3, column=1, sticky=tk.NSEW)
 
         # save button
         self.save_button = ttk.Button(
@@ -43,7 +50,8 @@ class View(ttk.Frame):
         :return:
         """
         if self.controller:
-            self.controller.save(self.email_var.get())
+            self.controller.save(self.email_var.get(),
+                                 self.first_name_var.get())
 
     def show_error(self, message):
         """

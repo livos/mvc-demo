@@ -11,7 +11,7 @@ class App(tk.Tk):
         self.title('Tkinter MVC Demo')
 
         # create a model
-        model = Model('hello@pythontutorial.net')
+        model = Model('', 'no@email.com')
 
         # create a view and place it on the root window
         view = View(self)

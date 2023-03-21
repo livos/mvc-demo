@@ -3,7 +3,7 @@ class Controller:
         self.model = model
         self.view = view
 
-    def save(self, email):
+    def save(self, email, first_name):
         """
         Save the email
         :param email:
@@ -13,10 +13,11 @@ class Controller:
 
             # save the model
             self.model.email = email
+            self.model.first_name = first_name
             self.model.save()
 
             # show a success message
-            self.view.show_success(f'The email {email} saved!')
+            self.view.show_success(f'{email} and {first_name} saved!')
 
         except ValueError as error:
             # show an error message
